@@ -95,12 +95,15 @@ button:disabled {
 
 .img--small {
   height: 15px;
+  width: 15px;
 }
 
 .img--medium {
   height: 24px;
+  width: 24px;
 }
 
 .img--large {
   height: 35px;
+  width: 155.69px;
 }
