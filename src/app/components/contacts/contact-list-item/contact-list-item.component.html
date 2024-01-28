@@ -1,0 +1,13 @@
+<ul class="contact-list-item" *ngIf="contact">
+    <li>{{contact.Info.Name}}</li>
+    <li>{{contact.Info.DefaultEmail.EmailAddress}}</li>
+    <li class="contact-list-item__actions">
+        <a aria-label="View and edit contact" class="transparent" title="View and edit contact"
+            [routerLink]="['contacts', contact.ID]">
+            <img class="img--small" alt="pen and paper" src="../assets/edit.svg" />
+        </a>
+        <button aria-label="Delete contact" class="transparent" title="Delete contact" (click)="deleteContact()">
+            <img class="img--small" alt="bin" src="../assets/bin.svg" />
+        </button>
+    </li>
+</ul>

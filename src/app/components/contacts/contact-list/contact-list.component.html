@@ -1,0 +1,33 @@
+<div class="contact-list" *ngIf="!isLoading">
+    <div class="contacts-list__control">
+        <input type="text" placeholder="Search..." name="search" id="search" (keyup)="onKey($event)">
+        <a routerLink="contacts/create">Create new contact</a>
+    </div>
+    <div *ngIf="filteredContacts.length > 0; else noData">
+        <ul class="contact-list__header">
+            <li class="contact-list__header__item">
+                <span>Name</span>
+                <button aria-label="Sort ascending" class="transparent" (click)="sortAscendingByName(true)">
+                    <img class="img--small" alt="arrow up" src="../assets/arrow-up.svg"/>
+                </button>
+                <button aria-label="Sort decending" class="transparent" (click)="sortAscendingByName(false)">
+                    <img class="img--small" alt="arrow down" src="../assets/arrow-down.svg" />
+                </button>
+            </li>
+            <li class="contact-list__header__item">
+                <span>Email</span>
+            </li>
+        </ul>
+        <div class="contact-list__items">
+            <app-contact-list-item *ngFor="let item of filteredContacts" [contact]="item"
+                (delete)="deleteContact($event)"></app-contact-list-item>
+        </div>
+    </div>
+
+    <ng-template #noData>
+        No data...
+    </ng-template>
+</div>
+
+
+<app-loading *ngIf="isLoading"></app-loading>

@@ -1,0 +1,11 @@
+.loading {
+    width: 85vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading__text {
+    margin-left: 12px;
+}

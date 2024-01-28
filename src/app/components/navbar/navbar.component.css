@@ -1,0 +1,64 @@
+.toolbar {
+  background-color: #00c8eb;
+  color: black;
+  font-weight: 600;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+}
+
+.toolbar__content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  padding: 16px;
+}
+
+.toolbar__content a {
+  border: none;
+}
+
+.toolbar__content:last-child {
+  justify-self: end;
+}
+
+.toolbar__content__right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.toolbar__content__right button {
+  margin-left: 15px;
+  background-color: #eee;
+  border: 1px solid #fafafa;
+}
+
+.toolbar__content__right h3 {
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+
+.auth {
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 600px) {
+  .toolbar__content__right {
+    flex-direction: column;
+    align-items: flex-end;
+
+  }
+
+  .toolbar__content__right button {
+    padding: 8px;
+  }
+
+  .auth__info {
+    display: none;
+  }
+
+  .toolbar__content__right h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+  }
+}

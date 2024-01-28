@@ -1,0 +1,36 @@
+<div class="app">
+  <app-navbar [isAuth]="isAuth" [isConfigOk]="isConfigOk" [user]="user" (isLogin)="logInOrOut($event)"></app-navbar>
+  <div class="content" role="main">
+    <div *ngIf="isAuth && isConfigOk; else login" class="contacts">
+      <h1>{{ title }}</h1>
+      <router-outlet></router-outlet>
+    </div>
+    <div *ngIf="!isConfigOk" class="card-container">
+      <h3 style="color: red">Error: ClientID missing in environment.ts file</h3>
+      <span><b>To get started</b>, please add a SPA ClientID from your developer account -> <a
+          href="https://developer.softrig.com/manage-apps/apps"
+          target="_blank">https://developer.softrig.com/manage-apps/apps</a></span>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer__left">
+      <p>
+        This is a sample APP to simplify authentication flow and getting started with SoftRig
+        & Angular.
+      </p>
+    </div>
+    <div class="footer__right">
+      <a aria-label="SoftRig Developer Portal" target="_blank" rel="noopener" href="https://developer.softrig.com"
+        title="SoftRig">
+        <img alt="SoftRig logo" class="img--large" src="../assets/navbar_logo.svg"/>
+      </a>
+      <span>Click the link to check out the docs</span>
+    </div>
+  </div>
+
+  <ng-template #login>
+    <div class="not-authorized">
+      Please log in to view your contacts...
+    </div>
+  </ng-template>
+</div>

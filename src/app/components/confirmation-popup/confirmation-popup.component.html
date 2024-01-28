@@ -1,0 +1,12 @@
+<div class="dialog">
+  <div mat-dialog-content>
+    <p class="dialog__content">
+      Are you sure you want to delete {{ name }} as a contact?
+    </p>
+  </div>
+
+  <div mat-dialog-actions class="dialog__actions">
+    <button (click)="onButtonClicked(false)"> No</button>
+    <button (click)="onButtonClicked(true)">Yes</button>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="contact-details">
+    <div class="contact-details__header">
+        <h2>{{ isEdit ? 'Edit Contact' : 'Create Contact'}}</h2>
+        <a routerLink="">
+            <img class="img--medium" alt="arrow back" src="../assets/arrow-back.svg" />
+            <span>Back</span>
+        </a>
+    </div>
+    <div class="contact-details__container" *ngIf="!isLoading">
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <div class="contact-details__container__form">
+                <ng-container formGroupName="info">
+                    <div class="form-control">
+                        <label for="name">Name</label>
+                        <input formControlName="name" type="text" id="name">
+                    </div>
+                    <ng-container formGroupName="defaultEmail">
+                        <div class="form-control">
+                            <label for="email">Email</label>
+                            <input formControlName="emailAddress" type="email" id="email">
+                        </div>
+                    </ng-container>
+                    <ng-container formGroupName="defaultPhone">
+                        <div class="form-control">
+                            <label for="number">Number</label>
+                            <input formControlName="number" type="text" id="number">
+                        </div>
+                        <div class="form-control">
+                            <label for="description">Description</label>
+                            <input formControlName="description" type="text" id="description">
+                        </div>
+                    </ng-container>
+                    <ng-container formGroupName="invoiceAddress">
+                        <div class="form-control">
+                            <label for="addressLine1">Addressline 1</label>
+                            <input formControlName="addressLine1" type="text" id="addressLine1">
+                        </div>
+                        <div class="form-control">
+                            <label for="addressLine2">Addressline 2</label>
+                            <input formControlName="addressLine2" type="text" id="addressLine2">
+                        </div>
+                        <div class="form-control">
+                            <label for="postalCode">Postal code</label>
+                            <input formControlName="postalCode" type="text" id="postalCode">
+                        </div>
+                        <div class="form-control">
+                            <label for="city">City</label>
+                            <input formControlName="city" type="text" id="city">
+                        </div>
+                    </ng-container>
+                    
+                </ng-container>
+                <div class="form-control form-control--max-width">
+                    <label for="comment">Comment</label>
+                    <input formControlName="comment" type="text" id="comment">
+                </div>
+            </div>
+
+            <button [disabled]="form.invalid || form.untouched || !form.dirty" type="submit">
+                <span>{{ isEdit ? 'Save' : 'Create' }}</span>
+            </button>
+        </form>
+    </div>
+
+    <app-loading *ngIf="isLoading"></app-loading>
+</div>
