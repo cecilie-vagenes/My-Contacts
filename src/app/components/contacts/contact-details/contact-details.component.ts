@@ -57,6 +57,7 @@ export class ContactDetailsComponent implements OnInit, OnDestroy {
       this.subscriptions.add(this.contactsService.createContact(this.token, this.form.value).subscribe({
         next: (response: Contact) => {
           this.toastr.success(`${response.Info.Name} was successfully created!`);
+          this.form.reset();
         },
         error: err => this.toastr.error(err)
       }));

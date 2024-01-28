@@ -64,8 +64,8 @@ export class ContactListComponent implements OnChanges, OnDestroy {
     }));
   }
 
-  sortAscendingByName(isAsc: boolean) {
-    isAsc
+  sortDescendingByName(isDesc: boolean) {
+    isDesc
       ? this.filteredContacts.sort((a, b) => a.Info.Name.localeCompare(b.Info.Name))
       : this.filteredContacts.sort((a, b) => b.Info.Name.localeCompare(a.Info.Name))
   }
